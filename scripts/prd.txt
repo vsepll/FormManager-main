@@ -1,0 +1,126 @@
+<context>
+# Overview  
+Form Manager es una aplicación web para la gestión de formularios (planillas) relacionados con eventos y espectáculos. Permite a los usuarios crear, editar, compartir y gestionar formularios detallados que incluyen información como detalles del evento, sectores, precios, descuentos, métodos de venta, y más. Esta solución centraliza toda la información necesaria para la administración de eventos en una plataforma unificada.
+
+# Core Features  
+- Gestión de planillas: Creación, edición, archivado y eliminación de planillas con datos completos de eventos.
+- Panel de control: Interfaz administrativa para gestionar todas las planillas del sistema.
+- Formulario detallado: Captura de información estructurada sobre eventos, incluyendo:
+  - Datos del evento (nombre, lugar, fecha, duración)
+  - Sectores y precios
+  - Descuentos aplicables
+  - Métodos y puntos de venta
+  - Acreditaciones y puntos de entrega
+  - Control de acceso
+  - Información de facturación y recaudación
+- Sistema de autenticación: Control de acceso basado en roles (admin/user)
+- Exportación: Descarga de planillas en formatos PDF y Excel
+- Compartir: Generación de enlaces para compartir planillas específicas
+
+# User Experience  
+- Usuarios administradores: Pueden acceder al panel completo, crear, editar y gestionar todas las planillas.
+- Usuarios estándar: Tienen acceso limitado según sus permisos.
+- Flujo principal: Login > Panel de control > Creación/edición de planillas > Compartir/exportar planillas
+- Experiencia visual: Interfaz limpia basada en componentes UI personalizados y Tailwind CSS
+</context>
+<PRD>
+# Technical Architecture  
+## Sistema de componentes
+- Frontend: React con Next.js para renderizado del lado del servidor y cliente
+- UI/UX: Tailwind CSS con componentes UI personalizados (buttons, cards, dialogs, etc.)
+- Autenticación: NextAuth.js con JWT para gestión de sesiones
+- Manejo de estado: React hooks para estado local de componentes
+- Peticiones HTTP: Axios para comunicación con la API
+- Notificaciones: Toast para mensajes de confirmación y error
+
+## Modelos de datos
+- Planilla: Documento principal que contiene toda la información del evento
+  - Información comercial (acuerdos y porcentajes)
+  - Datos del evento (nombre, lugar, fechas, duración)
+  - Sectores (tipos, capacidades, precios)
+  - Descuentos (sectores, porcentajes, validez)
+  - Métodos y puntos de venta
+  - Acreditaciones y sectores
+  - Control de acceso
+  - Facturación
+  - Datos de recaudación (tipo de cuenta, número de comercio)
+  - Información de producción
+
+## APIs e integraciones
+- API REST para CRUD de planillas
+- Endpoints específicos para:
+  - Autenticación de usuarios
+  - Gestión de planillas (crear, leer, actualizar, eliminar)
+  - Archivado y desarchivado
+  - Asignación de encargados
+  - Subida de archivos
+  - Generación de PDF y Excel
+
+## Infraestructura
+- Base de datos: MongoDB para almacenamiento de documentos
+- Alojamiento: Despliegue en plataforma compatible con Next.js (como Vercel)
+- Almacenamiento de archivos: Sistema de archivos o servicio de almacenamiento en la nube
+
+# Development Roadmap  
+## Fase 1: MVP - Funcionalidad básica
+- Sistema de autenticación con roles básicos
+- CRUD de planillas con formulario básico
+- Panel de control para administradores
+- Visualización de planillas existentes
+
+## Fase 2: Funcionalidades avanzadas
+- Campos avanzados en el formulario (sectores, descuentos, etc.)
+- Sistema de archivado de planillas
+- Asignación de encargados
+- Enlaces para compartir
+
+## Fase 3: Exportación y mejoras
+- Exportación a PDF y Excel
+- Mejoras en la interfaz de usuario
+- Optimización de rendimiento
+- Mejoras en la experiencia móvil
+
+## Fase 4: Características adicionales
+- Notificaciones y alertas
+- Estadísticas y reportes
+- Personalización avanzada de planillas
+- Integraciones con otros sistemas
+
+# Logical Dependency Chain
+1. Autenticación y estructura básica del proyecto
+2. Modelo de datos y API para planillas
+3. Formulario básico para crear/editar planillas
+4. Panel de control para visualización de planillas
+5. Funcionalidades de gestión (archivar, eliminar, compartir)
+6. Exportación y generación de documentos
+7. Mejoras y optimizaciones finales
+
+# Risks and Mitigations  
+## Desafíos técnicos
+- Formulario extenso y complejo: Implementar validación robusta y manejo de errores
+- Generación de PDF/Excel: Utilizar bibliotecas confiables para la exportación
+- Rendimiento con muchas planillas: Implementar paginación y optimizar consultas
+
+## Riesgos del MVP
+- Enfoque demasiado amplio: Priorizar características esenciales para la primera versión
+- Complejidad de la interfaz: Diseño intuitivo y guías contextuales
+
+## Limitaciones de recursos
+- Desarrollo frontend/backend: Aprovechar las capacidades de Next.js para ambos
+- Tiempo de desarrollo: Enfoque modular que permita entregas incrementales
+
+# Appendix  
+## Especificaciones técnicas
+- Framework: Next.js 14.x
+- Base de datos: MongoDB
+- Autenticación: NextAuth.js
+- UI: Tailwind CSS + componentes personalizados
+- Exportación: Biblioteca PDFKit para PDF, módulo Excel para hojas de cálculo
+- Dependencias principales: React, MongoDB, NextAuth, Axios, date-fns
+
+## Consideraciones futuras
+- Implementación de tests automatizados
+- Mejoras en la seguridad
+- Sistema de notificaciones en tiempo real
+- Interfaz de administración más robusta
+</PRD> 

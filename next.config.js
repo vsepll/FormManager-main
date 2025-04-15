@@ -26,8 +26,6 @@ const nextConfig = {
     }
     return config
   },
-}
-module.exports = {
   experimental: {
     appDir: true,
   },
@@ -35,3 +33,5 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
 }
+
+export default nextConfig;
